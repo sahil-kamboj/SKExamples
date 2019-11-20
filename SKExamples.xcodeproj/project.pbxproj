@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2AE9DAC02385B51F007C74B3 /* SKTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE9DABE2385B51F007C74B3 /* SKTextField.swift */; };
+		2AE9DAC12385B51F007C74B3 /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE9DABF2385B51F007C74B3 /* SKButton.swift */; };
+		2AE9DAC42385B5AD007C74B3 /* SKLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE9DAC22385B5AC007C74B3 /* SKLabel.swift */; };
+		2AE9DAC52385B5AD007C74B3 /* SKImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE9DAC32385B5AC007C74B3 /* SKImageView.swift */; };
+		2AE9DAC82385B6BB007C74B3 /* Webservices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE9DAC72385B6BB007C74B3 /* Webservices.swift */; };
+		2AE9DACA2385B75C007C74B3 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE9DAC92385B75C007C74B3 /* Common.swift */; };
+		2AE9DACC2385B7D3007C74B3 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE9DACB2385B7D3007C74B3 /* BaseController.swift */; };
 		2AFADE522378805200A081B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFADE512378805200A081B9 /* AppDelegate.swift */; };
 		2AFADE542378805200A081B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFADE532378805200A081B9 /* SceneDelegate.swift */; };
 		2AFADE562378805200A081B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFADE552378805200A081B9 /* ViewController.swift */; };
@@ -18,6 +25,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2AE9DABE2385B51F007C74B3 /* SKTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTextField.swift; sourceTree = "<group>"; };
+		2AE9DABF2385B51F007C74B3 /* SKButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKButton.swift; sourceTree = "<group>"; };
+		2AE9DAC22385B5AC007C74B3 /* SKLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKLabel.swift; sourceTree = "<group>"; };
+		2AE9DAC32385B5AC007C74B3 /* SKImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKImageView.swift; sourceTree = "<group>"; };
+		2AE9DAC72385B6BB007C74B3 /* Webservices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Webservices.swift; sourceTree = "<group>"; };
+		2AE9DAC92385B75C007C74B3 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		2AE9DACB2385B7D3007C74B3 /* BaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		2AFADE4E2378805200A081B9 /* SKExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AFADE512378805200A081B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AFADE532378805200A081B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +55,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2AE9DAC62385B5C7007C74B3 /* SKClasses */ = {
+			isa = PBXGroup;
+			children = (
+				2AE9DABF2385B51F007C74B3 /* SKButton.swift */,
+				2AE9DABE2385B51F007C74B3 /* SKTextField.swift */,
+				2AE9DAC32385B5AC007C74B3 /* SKImageView.swift */,
+				2AE9DAC22385B5AC007C74B3 /* SKLabel.swift */,
+			);
+			path = SKClasses;
+			sourceTree = "<group>";
+		};
 		2AFADE452378805200A081B9 = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +102,10 @@
 			isa = PBXGroup;
 			children = (
 				2AFADE69237880A300A081B9 /* PredefinedFunctions.swift */,
+				2AE9DAC72385B6BB007C74B3 /* Webservices.swift */,
+				2AE9DAC92385B75C007C74B3 /* Common.swift */,
+				2AE9DACB2385B7D3007C74B3 /* BaseController.swift */,
+				2AE9DAC62385B5C7007C74B3 /* SKClasses */,
 			);
 			path = CustomClasses;
 			sourceTree = "<group>";
@@ -152,11 +181,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AE9DAC82385B6BB007C74B3 /* Webservices.swift in Sources */,
 				2AFADE5C2378805200A081B9 /* SKExamples.xcdatamodeld in Sources */,
+				2AE9DAC12385B51F007C74B3 /* SKButton.swift in Sources */,
 				2AFADE562378805200A081B9 /* ViewController.swift in Sources */,
+				2AE9DACA2385B75C007C74B3 /* Common.swift in Sources */,
 				2AFADE522378805200A081B9 /* AppDelegate.swift in Sources */,
 				2AFADE6A237880A300A081B9 /* PredefinedFunctions.swift in Sources */,
 				2AFADE542378805200A081B9 /* SceneDelegate.swift in Sources */,
+				2AE9DAC42385B5AD007C74B3 /* SKLabel.swift in Sources */,
+				2AE9DAC52385B5AD007C74B3 /* SKImageView.swift in Sources */,
+				2AE9DACC2385B7D3007C74B3 /* BaseController.swift in Sources */,
+				2AE9DAC02385B51F007C74B3 /* SKTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
