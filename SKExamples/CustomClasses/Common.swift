@@ -185,61 +185,22 @@ extension NSObject {
 	}
 	
 	//MARK:- Phone Numbe Formats Settings
-	func formatNumber(textField : UITextField) -> String {
-		var mobileNumber = textField.text
+	func FormatNumber_Remove(text : String) -> String {
+		var mobileNumber: String = text
 		
-		mobileNumber = mobileNumber?.replacingOccurrences(of: "(", with: "")
-		mobileNumber = mobileNumber?.replacingOccurrences(of: ")", with: "")
-		mobileNumber = mobileNumber?.replacingOccurrences(of: " ", with: "")
-		mobileNumber = mobileNumber?.replacingOccurrences(of: "-", with: "")
-		mobileNumber = mobileNumber?.replacingOccurrences(of: "+", with: "")
+		mobileNumber = mobileNumber.replacingOccurrences(of: "(", with: "")
+		mobileNumber = mobileNumber.replacingOccurrences(of: ")", with: "")
+		mobileNumber = mobileNumber.replacingOccurrences(of: " ", with: "")
+		mobileNumber = mobileNumber.replacingOccurrences(of: "-", with: "")
+		mobileNumber = mobileNumber.replacingOccurrences(of: "+", with: "")
 		
-		let length = Int((mobileNumber?.count)!)
-		if length > 10 {
-			//			mobileNumber = mobileNumber?.substring(from: (mobileNumber?.index((mobileNumber?.startIndex)!, offsetBy: length - 10))!)
-			textField.text = "\(mobileNumber![(mobileNumber?.index((mobileNumber?.startIndex)!, offsetBy: -10))!])"
-		}
-		return mobileNumber!
+		return mobileNumber
 	}
-	
-	func checkEnglishPhoneNumberFormat(string: String?, str: String?, txtFld : UITextField) -> Bool {
-		
-		if string == ""{ //BackSpace
-			
-			return true
-			
-		}// (984)-884-8848 = 14
-		else if str!.count < 3{
-			print("Before : ", str!)
-			if str!.count == 1 {
-				
-				txtFld.text = "(" + str!
-				print("After : ", txtFld.text!)
-			}
-		}
-		else if str!.count == 5 {
-			
-			txtFld.text = txtFld.text! + ")-"
-			
-		}
-		else if str!.count == 10 {
-			
-			txtFld.text = txtFld.text! + "-"
-			
-		}
-		else if str!.count > 14 {
-			
-			return false
-		}
-		
-		return true
-	}
-	
 	
 	//MARK:- Currently Using for Phone Number
-	func formattedNumber(number: String) -> String {
+	func FormatNumber_PhoneNumber(number: String) -> String {//FormatNumber_PhoneNumber
 		let cleanPhoneNumber = number.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
-		let mask = "(XXX)-XXX-XXXX"
+		let mask = "(XXX) XXX-XXXXXX"
 
 		var result = ""
 		var index = cleanPhoneNumber.startIndex
@@ -247,6 +208,24 @@ extension NSObject {
 			if ch == "X" {
 				result.append(cleanPhoneNumber[index])
 				index = cleanPhoneNumber.index(after: index)
+			} else {
+				result.append(ch)
+			}
+		}
+		return result
+	}
+	
+	//MARK:- Currently Using for Credit Cards
+	func FormatNumber_CreditCard(number: String) -> String {
+		let cleanNumber = number.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+		let mask = "XXXX XXXX XXXX XXXX"
+
+		var result = ""
+		var index = cleanNumber.startIndex
+		for ch in mask where index < cleanNumber.endIndex {
+			if ch == "X" {
+				result.append(cleanNumber[index])
+				index = cleanNumber.index(after: index)
 			} else {
 				result.append(ch)
 			}
@@ -475,7 +454,7 @@ extension UIViewController {
 			
 		}
 		alertController.addAction(posAction)
-		self.present(alertController, animated: true, completion: nil)
+		UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
 	}
 	
 	func showAlert(title: String, message : String, posTitle: String, negTitle : String, completion: @escaping (Bool) -> ()) {
@@ -494,7 +473,7 @@ extension UIViewController {
 			}
 			alertController.addAction(negAction)
 		}
-		self.present(alertController, animated: true, completion: nil)
+		UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
 	}
 	
 	func showActionSheet(title: String, message: String, options: Array<String>, completion: @escaping(_ optionType: String) -> Void) {
@@ -513,7 +492,7 @@ extension UIViewController {
 		}
 		alertController.addAction(cancel)
 		
-		self.present(alertController, animated: true, completion: nil)
+		UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
 	}
 	
 }
