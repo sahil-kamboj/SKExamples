@@ -33,7 +33,7 @@ import UIKit
 	}
 	
 	func sharedInit() {
-		refreshBottomBorder(BottomBorder)
+		refreshBottomBorder(BottomLine)
 		refreshRadius(RadiusBorder)
 		refreshBorderColor(ColorBorder)
 		refreshBorderWidth(WidthBorder)
@@ -45,9 +45,9 @@ import UIKit
 	
 	//MARK:- Custom Settings
 	
-	@IBInspectable var BottomBorder: Bool = false {
+	@IBInspectable var BottomLine: Bool = false {
 		didSet {
-			refreshBottomBorder(BottomBorder)
+			refreshBottomBorder(BottomLine)
 		}
 	}
 	
@@ -78,7 +78,6 @@ import UIKit
 	}
 	
 	func refreshBorderColor(_ value: UIColor) {
-//		layer.borderWidth = 1.0
 		layer.borderColor = value.cgColor
 	}
 	
@@ -90,7 +89,6 @@ import UIKit
 	
 	func refreshBorderWidth(_ value: CGFloat) {
 		layer.borderWidth = value
-		//			layer.borderColor = value.cgColor
 	}
 	
 	@IBInspectable var PlaceholderColor: UIColor = AppColor.AppTextGray {	//UIColor.white {

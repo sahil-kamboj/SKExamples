@@ -145,6 +145,7 @@ extension NSObject {
 		attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paraStyle, range: NSRange(location: 0, length: attributedString.length - 1))
 		return attributedString
 	}
+	
 	func twoFonts() {
 		
 		let textLayer = UILabel(frame: CGRect(x: 30, y: 425, width: 315, height: 24))
@@ -321,9 +322,7 @@ extension UIViewController {
 			}
 		}
 		else {
-			showAlert(title: "Alert!", message: "Photo Library is not available", posTitle: "OK", negTitle: "") { (response) in
-				
-			}
+			showAlertWithMessage(title: "Alert", message: "Photo Library is not Available")
 		}
 	}
 	
@@ -375,9 +374,7 @@ extension UIViewController {
 			}
 		}
 		else {
-			showAlert(title: "Alert!", message: "Camera is not available on this device"/*pickLanguage("Camera not found")*/, posTitle: "OK", negTitle: "") { (response) in
-				
-			}
+			showAlertWithMessage(title: "Alert", message: "Camera is not available on this device")
 		}
 	}
 	
