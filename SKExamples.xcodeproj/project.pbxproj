@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A94C84023AFCF250003A5FA /* SKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A94C83F23AFCF250003A5FA /* SKView.swift */; };
+		2A94C84223AFCF410003A5FA /* SKString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A94C84123AFCF410003A5FA /* SKString.swift */; };
 		2AE9DAC02385B51F007C74B3 /* SKTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE9DABE2385B51F007C74B3 /* SKTextField.swift */; };
 		2AE9DAC12385B51F007C74B3 /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE9DABF2385B51F007C74B3 /* SKButton.swift */; };
 		2AE9DAC42385B5AD007C74B3 /* SKLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE9DAC22385B5AC007C74B3 /* SKLabel.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A94C83F23AFCF250003A5FA /* SKView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKView.swift; sourceTree = "<group>"; };
+		2A94C84123AFCF410003A5FA /* SKString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKString.swift; sourceTree = "<group>"; };
 		2AE9DABE2385B51F007C74B3 /* SKTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTextField.swift; sourceTree = "<group>"; };
 		2AE9DABF2385B51F007C74B3 /* SKButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKButton.swift; sourceTree = "<group>"; };
 		2AE9DAC22385B5AC007C74B3 /* SKLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKLabel.swift; sourceTree = "<group>"; };
@@ -62,6 +66,8 @@
 				2AE9DABE2385B51F007C74B3 /* SKTextField.swift */,
 				2AE9DAC32385B5AC007C74B3 /* SKImageView.swift */,
 				2AE9DAC22385B5AC007C74B3 /* SKLabel.swift */,
+				2A94C83F23AFCF250003A5FA /* SKView.swift */,
+				2A94C84123AFCF410003A5FA /* SKString.swift */,
 			);
 			path = SKClasses;
 			sourceTree = "<group>";
@@ -181,6 +187,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A94C84223AFCF410003A5FA /* SKString.swift in Sources */,
 				2AE9DAC82385B6BB007C74B3 /* Webservices.swift in Sources */,
 				2AFADE5C2378805200A081B9 /* SKExamples.xcdatamodeld in Sources */,
 				2AE9DAC12385B51F007C74B3 /* SKButton.swift in Sources */,
@@ -193,6 +200,7 @@
 				2AE9DAC52385B5AD007C74B3 /* SKImageView.swift in Sources */,
 				2AE9DACC2385B7D3007C74B3 /* BaseController.swift in Sources */,
 				2AE9DAC02385B51F007C74B3 /* SKTextField.swift in Sources */,
+				2A94C84023AFCF250003A5FA /* SKView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

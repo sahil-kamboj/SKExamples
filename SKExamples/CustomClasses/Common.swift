@@ -54,65 +54,10 @@ extension UIScrollView {
     }
 }
 
-//MARK:- String
-extension String {
-	
-	//MARK:- Valid Email
-	var isValidEmail: Bool {
-		let regularExpressionForEmail = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-		let testEmail = NSPredicate(format:"SELF MATCHES %@", regularExpressionForEmail)
-		return testEmail.evaluate(with: self)
-	}
-	//MARK:- Valid Phone
-	var isValidPhone: Bool {
-		let regularExpressionForPhone = "^\\d{3}-\\d{3}-\\d{4}$"
-		let testPhone = NSPredicate(format:"SELF MATCHES %@", regularExpressionForPhone)
-		return testPhone.evaluate(with: self)
-	}
-	//MARK:- Valid Name
-	var isName: Bool {
-		let regularExpressionForName = "[A-Za-z]+(?:\\s[A-Za-z]+)*"
-		let testName = NSPredicate(format:"SELF MATCHES %@", regularExpressionForName)
-		return testName.evaluate(with: self)
-	}
-	
-	func trim() -> String
-	{
-		return self.trimmingCharacters(in: CharacterSet.whitespaces)
-	}
-	
-	// formatting text for currency textField
-    func currencyInputFormatting() -> String {
-
-        var number: NSNumber!
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currencyAccounting
-        formatter.currencySymbol = "$"
-        formatter.maximumFractionDigits = 2
-        formatter.minimumFractionDigits = 0
-
-        var amountWithPrefix = self
-
-        // remove from String: "$", ".", ","
-        let regex = try! NSRegularExpression(pattern: "[^0-9]", options: .caseInsensitive)
-        amountWithPrefix = regex.stringByReplacingMatches(in: amountWithPrefix, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, self.count), withTemplate: "")
-
-        let double = (amountWithPrefix as NSString).doubleValue
-        number = NSNumber(value: (double / 100))
-
-        // if first number is 0 or all numbers were deleted
-        guard number != 0 as NSNumber else {
-            return ""
-        }
-
-        return formatter.string(from: number)!
-    }
-}
-
 //MARK:- NSObject
 extension NSObject {
 	
-	func TextFieldSpacing (textF: UITextField) {
+	func textFieldSpacing (textF: UITextField) {
 		let space = UIScreen.main.bounds.width * 0.12
 		let attributedString = NSMutableAttributedString(string: textF.text!)
 		print("Attributed String : ", attributedString)
@@ -129,14 +74,14 @@ extension NSObject {
 		textF.attributedText = attributedString
 	}
 	
-	func CharacterSpacing (text: String, or AttributedText: NSAttributedString, WithSpace: CGFloat) -> NSAttributedString {
+	func characterSpacing (text: String, or AttributedText: NSAttributedString, WithSpace: CGFloat) -> NSAttributedString {
 		
 		let attributedString = (text == "") ? NSMutableAttributedString(attributedString: AttributedText) : NSMutableAttributedString(string: text)
 		attributedString.addAttribute(NSAttributedString.Key.kern, value: WithSpace, range: NSRange(location: 0, length: attributedString.length - 1))
 		return attributedString
 	}
 	
-	func WordSpacing (text: String, or AttributedText: NSAttributedString, WithSpace: CGFloat, andLineDistance: CGFloat, textAlign: NSTextAlignment) -> NSAttributedString {
+	func wordSpacing (text: String, or AttributedText: NSAttributedString, WithSpace: CGFloat, andLineDistance: CGFloat, textAlign: NSTextAlignment) -> NSAttributedString {
 		let attributedString = (text == "") ? NSMutableAttributedString(attributedString: AttributedText) : NSMutableAttributedString(string: text)
 		attributedString.addAttribute(NSAttributedString.Key.kern, value: WithSpace, range: NSRange(location: 0, length: attributedString.length - 1))
 		let paraStyle = NSMutableParagraphStyle()
@@ -168,7 +113,7 @@ extension NSObject {
 		
 	}
 	
-	func DifferentFonts(textOne: String, textTwo: String/*, fontOne: [NSAttributedString.Key: Any], fontTwo: [NSAttributedString.Key: Any]*/) -> NSAttributedString {
+	func differentFonts(textOne: String, textTwo: String/*, fontOne: [NSAttributedString.Key: Any], fontTwo: [NSAttributedString.Key: Any]*/) -> NSAttributedString {
 		
 		let attributedText = NSMutableAttributedString(string: textOne, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
 		attributedText.append(NSAttributedString(string: textTwo, attributes: [ NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15.0, weight: .semibold)]))
@@ -186,7 +131,7 @@ extension NSObject {
 	}
 	
 	//MARK:- Phone Numbe Formats Settings
-	func FormatNumber_Remove(text : String) -> String {
+	func formatNumber_Remove(text : String) -> String { // Remove phone format elements other than numbers
 		var mobileNumber: String = text
 		
 		mobileNumber = mobileNumber.replacingOccurrences(of: "(", with: "")
@@ -198,8 +143,13 @@ extension NSObject {
 		return mobileNumber
 	}
 	
+	func formatNumber_RemoveNonNumbers(text: String) -> String { // Remove all elements other than number
+		
+		return text.replacingOccurrences( of:"[^0-9]", with: "", options: .regularExpression)
+	}
+	
 	//MARK:- Currently Using for Phone Number
-	func FormatNumber_PhoneNumber(number: String) -> String {//FormatNumber_PhoneNumber
+	func formatNumber_PhoneNumber(number: String) -> String {//FormatNumber_PhoneNumber
 		let cleanPhoneNumber = number.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
 		let mask = "(XXX) XXX-XXXXXX"
 
@@ -217,7 +167,7 @@ extension NSObject {
 	}
 	
 	//MARK:- Currently Using for Credit Cards
-	func FormatNumber_CreditCard(number: String) -> String {
+	func formatNumber_CreditCard(number: String) -> String {
 		let cleanNumber = number.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
 		let mask = "XXXX XXXX XXXX XXXX"
 
@@ -234,42 +184,12 @@ extension NSObject {
 		return result
 	}
 	
-	func format(phoneNumber: String, shouldRemoveLastDigit: Bool = false) -> String {
-		guard !phoneNumber.isEmpty else { return "" }
-		guard let regex = try? NSRegularExpression(pattern: "[\\s-\\(\\)]", options: .caseInsensitive) else { return "" }
-		let r = NSString(string: phoneNumber).range(of: phoneNumber)
-		var number = regex.stringByReplacingMatches(in: phoneNumber, options: .init(rawValue: 0), range: r, withTemplate: "")
-
-		if number.count > 10 {
-			let tenthDigitIndex = number.index(number.startIndex, offsetBy: 10)
-			number = String(number[number.startIndex..<tenthDigitIndex])
-		}
-
-		if shouldRemoveLastDigit {
-			let end = number.index(number.startIndex, offsetBy: number.count-1)
-			number = String(number[number.startIndex..<end])
-		}
-
-		if number.count < 7 {
-			let end = number.index(number.startIndex, offsetBy: number.count)
-			let range = number.startIndex..<end
-			number = number.replacingOccurrences(of: "(\\d{3})(\\d+)", with: "($1) $2", options: .regularExpression, range: range)
-
-		} else {
-			let end = number.index(number.startIndex, offsetBy: number.count)
-			let range = number.startIndex..<end
-			number = number.replacingOccurrences(of: "(\\d{3})(\\d{3})(\\d+)", with: "($1) $2-$3", options: .regularExpression, range: range)
-		}
-		return number
-	}
-	
-	
 	//MARK:- Image and Base64 String
-	func ConvertImageToBase64String (img: UIImage) -> String {
+	func convertImageToBase64String (img: UIImage) -> String {
 		return "data:image/jpg;base64," + (img.jpegData(compressionQuality: 0.5)?.base64EncodedString() ?? "")
 	}
 	
-	func ConvertBase64StringToImage (imageBase64String:String) -> UIImage {
+	func convertBase64StringToImage (imageBase64String:String) -> UIImage {
 		let imageData = Data.init(base64Encoded: imageBase64String, options: .init(rawValue: 0))
 		let image = UIImage(data: imageData!)
 		return image!
