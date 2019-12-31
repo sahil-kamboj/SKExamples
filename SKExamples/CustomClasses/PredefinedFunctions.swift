@@ -11,12 +11,6 @@ import Photos
 import Foundation
 import QuartzCore
 
-
-let MAINSCREEN_WIDTH = UIScreen.main.bounds.size.width
-let MAINSCREEN_HEIGHT = UIScreen.main.bounds.size.height
-
-let USDF = UserDefaults.standard
-
 enum UIUserInterfaceIdiom : Int {
 	case unspecified
 	case phone

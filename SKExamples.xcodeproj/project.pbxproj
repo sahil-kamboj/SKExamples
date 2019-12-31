@@ -3,10 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A49CB2F23BBC6D20025C1E5 /* ButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49CB2E23BBC6D20025C1E5 /* ButtonController.swift */; };
+		2A49CB3123BBC6F00025C1E5 /* TextFieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49CB3023BBC6F00025C1E5 /* TextFieldController.swift */; };
+		2A49CB3323BBC7030025C1E5 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49CB3223BBC7030025C1E5 /* ImageViewController.swift */; };
+		2A49CB3523BBC7130025C1E5 /* LabelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A49CB3423BBC7130025C1E5 /* LabelController.swift */; };
 		2A94C84023AFCF250003A5FA /* SKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A94C83F23AFCF250003A5FA /* SKView.swift */; };
 		2A94C84223AFCF410003A5FA /* SKString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A94C84123AFCF410003A5FA /* SKString.swift */; };
 		2AE9DAC02385B51F007C74B3 /* SKTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE9DABE2385B51F007C74B3 /* SKTextField.swift */; };
@@ -24,9 +28,15 @@
 		2AFADE5E2378805300A081B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AFADE5D2378805300A081B9 /* Assets.xcassets */; };
 		2AFADE612378805300A081B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AFADE5F2378805300A081B9 /* LaunchScreen.storyboard */; };
 		2AFADE6A237880A300A081B9 /* PredefinedFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFADE69237880A300A081B9 /* PredefinedFunctions.swift */; };
+		B3B88EC2EE2D9C34E2FBCE2D /* Pods_SKExamples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1029832F3B4FA6B66EC4A869 /* Pods_SKExamples.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1029832F3B4FA6B66EC4A869 /* Pods_SKExamples.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SKExamples.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A49CB2E23BBC6D20025C1E5 /* ButtonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonController.swift; sourceTree = "<group>"; };
+		2A49CB3023BBC6F00025C1E5 /* TextFieldController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldController.swift; sourceTree = "<group>"; };
+		2A49CB3223BBC7030025C1E5 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		2A49CB3423BBC7130025C1E5 /* LabelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelController.swift; sourceTree = "<group>"; };
 		2A94C83F23AFCF250003A5FA /* SKView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKView.swift; sourceTree = "<group>"; };
 		2A94C84123AFCF410003A5FA /* SKString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKString.swift; sourceTree = "<group>"; };
 		2AE9DABE2385B51F007C74B3 /* SKTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTextField.swift; sourceTree = "<group>"; };
@@ -46,6 +56,8 @@
 		2AFADE602378805300A081B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2AFADE622378805300A081B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AFADE69237880A300A081B9 /* PredefinedFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredefinedFunctions.swift; sourceTree = "<group>"; };
+		61664FAB643FCD447F1F4317 /* Pods-SKExamples.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKExamples.debug.xcconfig"; path = "Target Support Files/Pods-SKExamples/Pods-SKExamples.debug.xcconfig"; sourceTree = "<group>"; };
+		F9D6D367991815439F8F747A /* Pods-SKExamples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKExamples.release.xcconfig"; path = "Target Support Files/Pods-SKExamples/Pods-SKExamples.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,12 +65,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3B88EC2EE2D9C34E2FBCE2D /* Pods_SKExamples.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00BE8E424EBF8A9E0CEF6262 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1029832F3B4FA6B66EC4A869 /* Pods_SKExamples.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2A49CB2D23BBC6AF0025C1E5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2AFADE552378805200A081B9 /* ViewController.swift */,
+				2A49CB2E23BBC6D20025C1E5 /* ButtonController.swift */,
+				2A49CB3023BBC6F00025C1E5 /* TextFieldController.swift */,
+				2A49CB3223BBC7030025C1E5 /* ImageViewController.swift */,
+				2A49CB3423BBC7130025C1E5 /* LabelController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		2AE9DAC62385B5C7007C74B3 /* SKClasses */ = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +110,8 @@
 			children = (
 				2AFADE502378805200A081B9 /* SKExamples */,
 				2AFADE4F2378805200A081B9 /* Products */,
+				77A6BC908E74A9A1BDBF163C /* Pods */,
+				00BE8E424EBF8A9E0CEF6262 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,7 +129,7 @@
 				2AFADE682378806700A081B9 /* CustomClasses */,
 				2AFADE512378805200A081B9 /* AppDelegate.swift */,
 				2AFADE532378805200A081B9 /* SceneDelegate.swift */,
-				2AFADE552378805200A081B9 /* ViewController.swift */,
+				2A49CB2D23BBC6AF0025C1E5 /* Controllers */,
 				2AFADE572378805200A081B9 /* Main.storyboard */,
 				2AFADE5D2378805300A081B9 /* Assets.xcassets */,
 				2AFADE5F2378805300A081B9 /* LaunchScreen.storyboard */,
@@ -116,6 +151,15 @@
 			path = CustomClasses;
 			sourceTree = "<group>";
 		};
+		77A6BC908E74A9A1BDBF163C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				61664FAB643FCD447F1F4317 /* Pods-SKExamples.debug.xcconfig */,
+				F9D6D367991815439F8F747A /* Pods-SKExamples.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -123,9 +167,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2AFADE652378805300A081B9 /* Build configuration list for PBXNativeTarget "SKExamples" */;
 			buildPhases = (
+				6AE38F3FC95FA0AC50BC45DB /* [CP] Check Pods Manifest.lock */,
 				2AFADE4A2378805200A081B9 /* Sources */,
 				2AFADE4B2378805200A081B9 /* Frameworks */,
 				2AFADE4C2378805200A081B9 /* Resources */,
+				B599FCF84263262CD538E05E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -182,24 +228,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6AE38F3FC95FA0AC50BC45DB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SKExamples-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B599FCF84263262CD538E05E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SKExamples/Pods-SKExamples-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SKExamples/Pods-SKExamples-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SKExamples/Pods-SKExamples-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2AFADE4A2378805200A081B9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				2A94C84223AFCF410003A5FA /* SKString.swift in Sources */,
+				2A49CB3123BBC6F00025C1E5 /* TextFieldController.swift in Sources */,
 				2AE9DAC82385B6BB007C74B3 /* Webservices.swift in Sources */,
+				2A49CB3323BBC7030025C1E5 /* ImageViewController.swift in Sources */,
 				2AFADE5C2378805200A081B9 /* SKExamples.xcdatamodeld in Sources */,
 				2AE9DAC12385B51F007C74B3 /* SKButton.swift in Sources */,
 				2AFADE562378805200A081B9 /* ViewController.swift in Sources */,
 				2AE9DACA2385B75C007C74B3 /* Common.swift in Sources */,
 				2AFADE522378805200A081B9 /* AppDelegate.swift in Sources */,
+				2A49CB2F23BBC6D20025C1E5 /* ButtonController.swift in Sources */,
 				2AFADE6A237880A300A081B9 /* PredefinedFunctions.swift in Sources */,
 				2AFADE542378805200A081B9 /* SceneDelegate.swift in Sources */,
 				2AE9DAC42385B5AD007C74B3 /* SKLabel.swift in Sources */,
 				2AE9DAC52385B5AD007C74B3 /* SKImageView.swift in Sources */,
 				2AE9DACC2385B7D3007C74B3 /* BaseController.swift in Sources */,
 				2AE9DAC02385B51F007C74B3 /* SKTextField.swift in Sources */,
+				2A49CB3523BBC7130025C1E5 /* LabelController.swift in Sources */,
 				2A94C84023AFCF250003A5FA /* SKView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,6 +434,7 @@
 		};
 		2AFADE662378805300A081B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61664FAB643FCD447F1F4317 /* Pods-SKExamples.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -359,6 +452,7 @@
 		};
 		2AFADE672378805300A081B9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9D6D367991815439F8F747A /* Pods-SKExamples.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

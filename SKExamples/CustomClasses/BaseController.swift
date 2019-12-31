@@ -7,8 +7,9 @@
 //
 
 import UIKit
-import SDWebImage
+//import SDWebImage
 import NVActivityIndicatorView
+import PhotosUI
 
 
 let USDF = UserDefaults.standard
@@ -24,7 +25,12 @@ enum PermissionCases: String, CaseIterable {
 	case Restricted = "Restricted"
 }
 
-class BaseController: UIViewController, NVActivityIndicatorViewable, UITextFieldDelegate {
+enum PictureOption: String, CaseIterable {
+	case Camera = "Camera"
+	case Gallery = "Photo Gallery"
+}
+
+class BaseController: UIViewController, NVActivityIndicatorViewable, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()

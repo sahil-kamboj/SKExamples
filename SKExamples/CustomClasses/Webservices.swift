@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import Alamofire
+import Alamofire
 
 struct AppURL {
 	static let BASE_URL = ""
