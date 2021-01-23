@@ -27,12 +27,27 @@ import UIKit
 	}
 	
 	func sharedInit() {
+		refreshButtonFont(value: screenFont)
 		refreshCorners(value: cornerRadius)
 		refreshBorderColor(_colorBorder: customBorderColor)
 		refreshBorder(_borderWidth: borderWidth)
 		refreshImageWidth(value: ImageWidth)
 		refreshImageMode(value: ImageMode)
 		refreshPadding(AllowPadding)
+	}
+	
+	@IBInspectable
+	public var screenFont : Bool = false {
+		didSet {
+			if screenFont {
+				refreshButtonFont(value: screenFont)
+			}
+		}
+	}
+	
+	func refreshButtonFont(value: Bool) {
+		let pSize = (self.titleLabel?.font.pointSize)!/568//self.font.pointSize/667
+		self.titleLabel?.font = (self.titleLabel?.font.withSize(MAINSCREEN_HEIGHT * pSize))!
 	}
 	
 	@IBInspectable var ImageWidth: CGFloat = 20.0 {

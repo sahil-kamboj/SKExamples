@@ -48,17 +48,16 @@ extension NSObject {
 		view.layer.masksToBounds = false
 	}
 	
-	func PushViewController (toVC: String, mine: UIViewController) {
+	func PushViewControllerWithSB (toVC: String, mine: UIViewController) {
 		let me = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: toVC) as UIViewController
-		
 		mine.navigationController?.pushViewController(me, animated: true)
 	}
 	
-	func PopViewController (from : UIViewController) {
+	func PopViewControllerWithSB (from : UIViewController) {
 		from.navigationController?.popViewController(animated: true)
 	}
 	
-	func PopMultipleViewControllers(_ nb: Int, from: UIViewController) {
+	func PopMultipleViewControllersWithSB(_ nb: Int, from: UIViewController) {
 		if let viewControllers: [UIViewController] = from.navigationController?.viewControllers {
 			guard viewControllers.count < nb else {
 				from.navigationController?.popToViewController(viewControllers[viewControllers.count - nb], animated: true)
@@ -75,7 +74,7 @@ extension NSObject {
 	}
 	
 	//Language Selection
-	func pickLanguage (_ key:String) -> String {
+	func pickLanguage (_ key: String) -> String {
 		return NSLocalizedString(key, comment: "Cancel")
 	}
 	
@@ -125,7 +124,7 @@ extension NSObject {
 			popoverController.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.midY, width: 0, height: 0)
 			popoverController.permittedArrowDirections = []
 		}
-		UIApplication.shared.keyWindow?.rootViewController?.present(actionSheet, animated: true)
+		UIWindow.key?.rootViewController?.present(actionSheet, animated: true)
 	}
 	
 	// MARK: - Alert Controller
@@ -146,7 +145,15 @@ extension NSObject {
 			})
 			alertController.addAction(cancel)
 		}
-		UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true)
+		UIWindow.key?.rootViewController?.present(alertController, animated: true)
+	}
+	
+	func showAlertWithMessage(title: String, message : String) {
+		let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+		let posAction = UIAlertAction(title: "OK", style: .default) { (action) in
+		}
+		alertController.addAction(posAction)
+		UIWindow.key?.rootViewController?.present(alertController, animated: true, completion: nil)
 	}
 	
 	//MARK:- Photo Library Authorization
@@ -155,36 +162,42 @@ extension NSObject {
 			let status = PHPhotoLibrary.authorizationStatus()
 			
 			switch status {
-			case .authorized:
-				print("Photo Library Access is Authorized")
-				completion(true)
-				break
-				
-			case .denied:
-				print("Photo Library Access is Denied")
-				completion(false)
-				break
-				
-			case .notDetermined:
-				var newStatusReturn = Bool()
-				PHPhotoLibrary.requestAuthorization { (newStatus) in
-					if newStatus == PHAuthorizationStatus.authorized {
-						newStatusReturn = true
+				case .authorized:
+					print("Photo Library Access is Authorized")
+					completion(true)
+					break
+					
+				case .denied:
+					print("Photo Library Access is Denied")
+					completion(false)
+					break
+					
+				case .notDetermined:
+					var newStatusReturn = Bool()
+					PHPhotoLibrary.requestAuthorization { (newStatus) in
+						if newStatus == PHAuthorizationStatus.authorized {
+							newStatusReturn = true
+						}
+						else {
+							newStatusReturn = false
+						}
 					}
-					else {
-						newStatusReturn = false
-					}
-				}
-				completion(newStatusReturn)
-				break
-				
-			case .restricted:
-				print("Photo Library Access is restricted")
-				completion(false)
-				break
-			@unknown default:
-				print("Unknown Default")
-				break
+					completion(newStatusReturn)
+					break
+					
+				case .restricted:
+					print("Photo Library Access is restricted")
+					completion(false)
+					break
+					
+				case .limited:
+					print("Photo Library Access is Limited")
+					completion(false)
+					break
+					
+				@unknown default:
+					print("Unknown Default")
+					break
 			}
 		}
 		else {
@@ -251,16 +264,6 @@ class ActionButton : UIButton {
 		
 		super.awakeFromNib()
 		
-	}
-	
-	@IBInspectable
-	public var screenFont : Bool = false {
-		didSet {
-			if screenFont {
-				let pSize = (self.titleLabel?.font.pointSize)!/568//self.font.pointSize/667
-				self.titleLabel?.font = (self.titleLabel?.font.withSize(MAINSCREEN_HEIGHT * pSize))!
-			}
-		}
 	}
 	
 	@IBInspectable

@@ -365,52 +365,15 @@ extension UIViewController {
 		self.navigationController?.popViewController(animated: animate)
 	}
 	
-	func showAlertWithMessage(title: String, message : String) {
-		let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-		let posAction = UIAlertAction(title: "OK", style: .default) { (action) in
-			
-		}
-		alertController.addAction(posAction)
-		UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
-	}
-	
-	func showAlert(title: String, message : String, posTitle: String, negTitle : String, completion: @escaping (Bool) -> ()) {
-		let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-		
-		if posTitle != "" {
-			let posAction = UIAlertAction(title: posTitle, style: .default) { (action) in
-				completion(true)
-			}
-			alertController.addAction(posAction)
-		}
-		
-		if negTitle != "" {
-			let negAction = UIAlertAction(title: negTitle, style: .default) { (action) in
-				completion(false)
-			}
-			alertController.addAction(negAction)
-		}
-		UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
-	}
-	
-	func showActionSheet(title: String, message: String, options: Array<String>, completion: @escaping(_ optionType: String) -> Void) {
-		
-		let alertController = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
-		
-		for i in options {
-			let action = UIAlertAction(title: i, style: .default) { (optionAction) in
-				completion(i)
-			}
-			alertController.addAction(action)
-		}
-		
-		let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (cancelAction) in
-			
-		}
-		alertController.addAction(cancel)
-		
-		UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
-	}
 	
 }
 
+extension UIWindow {
+	static var key: UIWindow? {
+		if #available(iOS 13, *) {
+			return UIApplication.shared.windows.first { $0.isKeyWindow }
+		} else {
+			return UIApplication.shared.keyWindow
+		}
+	}
+}
